@@ -12,7 +12,8 @@ class TodosList extends React.Component {
           key={todo.id} 
           todo={todo} 
           handleCheckBoxChange = {this.props.handleCheckBoxChange}
-          handleDeleteButton={this.props.handleDeleteButton}/>
+          handleDeleteButton={this.props.handleDeleteButton}
+          setUpdate = {this.props.setUpdate}/>
         ))}
       </ul>
     </>    
