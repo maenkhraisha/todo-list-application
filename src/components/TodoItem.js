@@ -3,6 +3,10 @@ import styles from "./TodoItem.module.css"
 
 class TodoItem extends React.Component {
 
+    componentWillUnmount() {
+        console.log("Cleaning up...")
+      }
+      
     state = {
         editing: false,
     }
