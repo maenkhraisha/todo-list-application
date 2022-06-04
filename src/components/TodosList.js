@@ -8,7 +8,11 @@ class TodosList extends React.Component {
     <h1>am to do list</h1>
       <ul>
         {this.props.todos.map(todo => (
-          <TodoItem key={todo.id} todo={todo} />
+          <TodoItem 
+          key={todo.id} 
+          todo={todo} 
+          handleCheckBoxChange = {this.props.handleCheckBoxChange}
+          handleDeleteButton={this.props.handleDeleteButton}/>
         ))}
       </ul>
     </>    

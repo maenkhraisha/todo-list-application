@@ -1,6 +1,8 @@
 import React from "react";
 import TodosList from "./TodosList";
 import Header from "./Header";
+import InputTodo from "./InputTodo";
+import {v4 as uuidv4} from "uuid"
 
 class TodoContainer extends React.Component {
 
@@ -23,11 +25,52 @@ class TodoContainer extends React.Component {
             }
         ]
     };
+    
+    handleCheckBox = id => {
+        this.setState(prevState => {
+            return {
+            todos: prevState.todos.map(todo => {
+              if (todo.id === id) {
+                return {
+                    ...todo,
+                    completed : !todo.completed
+                }
+              }
+              return todo
+            }),
+          }})
+    };
+
+    delTodo = id => {
+        this.setState({
+            todos:[
+                ...this.state.todos.filter(todo=>{
+                        return todo.id !== id;
+                    }
+                )
+            ]
+        }
+        )   
+    }
+
+    addTodoItem = title => {
+        const newItem = {
+            id: uuidv4(),
+            title: title,
+            completed: false
+        }
+        this.setState({
+            todos: [...this.state.todos,newItem]
+        })
+    }
     render() {
         return (
             <div>
                 <Header />
-                <TodosList todos={this.state.todos} />
+                <InputTodo addTodoProps={this.addTodoItem} />
+                <TodosList todos={this.state.todos} 
+                handleCheckBoxChange ={this.handleCheckBox} 
+                handleDeleteButton={this.delTodo}/>
             </div>
         );
     }
