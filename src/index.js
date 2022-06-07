@@ -1,7 +1,15 @@
 import React from "react"
 import ReactDOM from "react-dom/client"
-import { BrowserRouter  } from "react-router-dom"
+import {
+  BrowserRouter as Router,
+  Routes,
+  Route,
+  Link
+} from "react-router-dom";
 //component file
+
+import About from "./functionBased/pages/About"
+import NotMatch from "./functionBased/pages/NotMatch"
 
 import TodoContainer from "./functionBased/components/TodoContainer"
 import "./functionBased/App.css"
@@ -9,10 +17,12 @@ import "./functionBased/App.css"
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>
-    <BrowserRouter >
-      <React.Fragment>
-        <TodoContainer />
-      </React.Fragment>
-    </BrowserRouter >
+    <Router >
+      <Routes>
+           <Route path="/about" element={<About />} />
+           <Route path="*" element={<NotMatch />} />
+           <Route path="/" element={ <TodoContainer />} />
+        </Routes>
+    </Router >
   </React.StrictMode>
 )
