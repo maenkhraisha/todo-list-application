@@ -3,8 +3,7 @@ import React from "react"
 
 
 const Navbar = () => {
-    const links = [
-        {
+    const links = [{
             id: 1,
             path: "/",
             text: "Home",
@@ -16,14 +15,13 @@ const Navbar = () => {
         },
     ]
 
-    return (
-        <nav className="navBar">
-            <ul>
-                {links.map(link => {
-                    return <li key={link.id}>{link.text}</li>
-                })}
-            </ul>
-        </nav>
+    return ( < nav className = "navBar" >
+        <
+        ul > {
+            links.map(link => {
+                return <li key = { link.id } > { link.text } < /li>
+            })
+        } < /ul> < /nav >
     )
 }
-export default Navbar
+export default Navbar;

@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from "react"
-import { Routes, BrowserRouter as Route } from 'react-router-dom';
 
 import TodosList from "./TodosList";
 import Header from "./Header";
